@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-import PEFACaseStudyClient from './pefa-case-study-client';
+import SampleCaseStudyClient from './sample-case-client';
 
 type CaseStudyMeta = {
   title: string;
@@ -17,12 +17,12 @@ type ParsedCaseStudy = {
 };
 
 const DEFAULT_META: CaseStudyMeta = {
-  title: 'PEFA Entertainment: Building a Movie Streaming Platform from ground up',
+  title: 'Sample Case Study Title',
   summary:
-    'How we built and shipped a digital entertainment platform that serves video content reliably across devices, handled infrastructure challenges, and delivered a production-ready product under tight timelines.',
-  year: '2024',
-  readTime: '8 min read',
-  tags: ['Next.js', 'React', 'DevOps', 'AWS/Cloud Infrastructure', 'CI/CD'],
+    'A short summary that describes the problem, the solution, and the outcome in 1–2 sentences.',
+  year: '2025',
+  readTime: '5 min read',
+  tags: ['Product', 'Engineering', 'Design'],
 };
 
 function parseFrontmatter(source: string): ParsedCaseStudy {
@@ -82,16 +82,16 @@ function parseFrontmatter(source: string): ParsedCaseStudy {
   };
 }
 
-export default async function PEFACaseStudy() {
+export default async function SampleCaseStudy() {
   const filePath = path.join(
     process.cwd(),
     'app',
     'case-studies',
-    'pefa-entertainment',
-    'pefa-entertainment.md'
+    'sample-case',
+    'sample-case.md'
   );
   const source = await fs.readFile(filePath, 'utf8');
   const { meta, contentHtml } = parseFrontmatter(source);
 
-  return <PEFACaseStudyClient meta={meta} contentHtml={contentHtml} />;
+  return <SampleCaseStudyClient meta={meta} contentHtml={contentHtml} />;
 }
