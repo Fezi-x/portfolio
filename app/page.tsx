@@ -344,7 +344,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:zayyarminthu4@gmail.com"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-lg font-medium hover:bg-white transition-colors"
             >
               Get in Touch
@@ -354,7 +354,7 @@ export default function Home() {
           {/* Social Links */}
           <div className="flex gap-4 justify-center">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Fezi-x"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-zinc-800 rounded-lg hover:bg-zinc-900/70 hover:border-zinc-700 transition-colors group"
@@ -364,7 +364,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/zayar-minthu-610307247/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-zinc-800 rounded-lg hover:bg-zinc-900/70 hover:border-zinc-700 transition-colors group"
@@ -374,7 +374,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/ZayarMinthuW"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-zinc-800 rounded-lg hover:bg-zinc-900/70 hover:border-zinc-700 transition-colors group"
@@ -384,7 +384,7 @@ export default function Home() {
             </a>
 
             <a
-              href="https://instagram.com/yourusername"
+              href="https://www.instagram.com/d.f3lix/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-zinc-800 rounded-lg hover:bg-zinc-900/70 hover:border-zinc-700 transition-colors group"
