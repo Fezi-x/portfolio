@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { ArrowRight, ExternalLink, FileText, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Home() {
@@ -71,12 +71,88 @@ export default function Home() {
           </motion.div>
 
           <div className="space-y-8">
-            {/* PEFA Entertainment Project Card */}
+            {/* ISSA Project Card */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6 }}
+              className="group relative bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 hover:border-zinc-700 transition-colors"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold mb-3">Self-Learning Prompt Validation System</h3>
+
+                  <p className="text-lg text-zinc-400 mb-6">
+                    A self-learning prompt validation system that scores and evolves prompts for
+                    reliability, tracks versions with diffs, and ships an API + frontend workflow
+                    for prompt lifecycle management.
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <span className="px-3 py-1 text-sm bg-zinc-900/80 border border-zinc-700 rounded-full text-zinc-200">
+                      FastAPI
+                    </span>
+                    <span className="px-3 py-1 text-sm bg-zinc-900/80 border border-zinc-700 rounded-full text-zinc-200">
+                      PostgreSQL
+                    </span>
+                    <span className="px-3 py-1 text-sm bg-zinc-900/80 border border-zinc-700 rounded-full text-zinc-200">
+                      Next.js
+                    </span>
+                    <span className="px-3 py-1 text-sm bg-zinc-900/80 border border-zinc-700 rounded-full text-zinc-200">
+                      Tailwind
+                    </span>
+                    <span className="px-3 py-1 text-sm bg-zinc-900/80 border border-zinc-700 rounded-full text-zinc-200">
+                      Prompt Evolution
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <a
+                      href="https://hackathon-issa-frontend.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-zinc-100 font-medium hover:text-zinc-200 transition-colors"
+                    >
+                      View Live App
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+
+                    <div className="flex items-center gap-4 text-sm text-zinc-400">
+                      <a
+                        href="https://github.com/Fezi-x/zayar-hackathon-issa"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 hover:text-zinc-200 transition-colors"
+                      >
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </a>
+                      <a
+                        href="https://zayar-hackathon-issa-production.up.railway.app/docs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 hover:text-zinc-200 transition-colors"
+                      >
+                        <FileText className="w-4 h-4" />
+                        API Docs
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:w-48 h-48 bg-zinc-900/80 rounded-xl flex items-center justify-center border border-zinc-800">
+                  <span className="text-5xl font-semibold tracking-tight text-zinc-500">AI</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* PEFA Entertainment Project Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="group relative bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 hover:border-zinc-700 transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -124,7 +200,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="group relative bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 hover:border-zinc-700 transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -171,7 +247,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               className="group relative bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 md:p-12 hover:border-zinc-700 transition-colors"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -218,7 +294,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="bg-zinc-900/40 border border-dashed border-zinc-800 rounded-2xl p-8 md:p-12"
             >
               <div className="text-center">
@@ -398,6 +474,5 @@ export default function Home() {
     </main>
   );
 }
-
 
 

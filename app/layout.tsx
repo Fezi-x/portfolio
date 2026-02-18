@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Product Portfolio",
+  title: "Portfolio | Zayar",
   description: "Building and shipping products that solve real problems.",
 };
 
