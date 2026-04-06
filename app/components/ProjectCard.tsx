@@ -11,7 +11,7 @@ export type ProjectCardProps = {
   logoAlt?: string;
   href?: string;
   links?: string[];
-  videoSrc?: string;
+  mediaSrc?: string;
   architecture?: string;
   featured?: boolean;
   size?: ProjectSize;
@@ -25,7 +25,7 @@ export function ProjectCard({
   logoAlt,
   href,
   links,
-  videoSrc,
+  mediaSrc,
   architecture,
   featured,
   size = 'small',
@@ -49,15 +49,13 @@ export function ProjectCard({
       {featured ? (
         <div className="flex flex-col gap-5">
           <div className="w-full rounded-[12px] border border-[#2A2A2A] bg-[#121212] overflow-hidden aspect-[16/9]">
-            <video
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              src={videoSrc}
-            />
+            {mediaSrc ? (
+              <img
+                src={mediaSrc}
+                alt={`${title} demo`}
+                className="w-full h-full object-cover"
+              />
+            ) : null}
           </div>
           <div className="space-y-2">
             <h3 className="text-[16px] font-medium text-[#FFFFFF]">{title}</h3>

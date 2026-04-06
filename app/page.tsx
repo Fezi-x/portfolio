@@ -55,10 +55,10 @@ const GRID_ITEMS: ProjectCardProps[] = [
     title: 'Devloop',
     description:
       'A workflow system that connects development tasks directly with execution, allowing actions to trigger structured outputs and GitHub issue management in real time.',
-    tech: ['Python', 'Codex', 'GitHub API', 'Skill'],
+    tech: ['Python', 'CLI', 'GitHub API', 'Automation', 'System Design'],
     architecture:
       'Command-driven interface that maps user intent into structured operations, integrated with external services via API orchestration.',
-    videoSrc: '/devloop-demo.mp4',
+    mediaSrc: '/devloop-demo.gif',
     href: 'https://github.com/Fezi-x/devloop',
     featured: true,
   },
