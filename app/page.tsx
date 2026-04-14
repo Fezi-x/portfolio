@@ -5,75 +5,56 @@ import { TechIcon } from './components/TechIcon';
 
 const GRID_ITEMS: ProjectCardProps[] = [
   {
-    size: 'small',
     title: 'CUEO',
     description:
       'Mobile teleprompter app for capturing video while reading a scripts.',
     tech: ['React Native', 'Tailwind', 'Expo go', 'UI/UX'],
     logoSrc: '/cueo_logo.png',
     logoAlt: 'CUEO logo',
-    href: 'https://github.com/Fezi-x/cueoApp',
+    projectUrl: 'https://github.com/Fezi-x/cueoApp',
+    githubUrl: 'https://github.com/Fezi-x/cueoApp',
   },
   {
-    size: 'small',
     title: 'krakentec.com',
     description: 'Business platform for managing digital presence and services for local businesses.',
     tech: ['Web Stack', 'UI/UX', 'CMS', 'Deployment'],
     logoSrc: '/kraken_logo.png',
     logoAlt: 'Krakentec logo',
-    href: 'https://www.krakentec.com/',
+    projectUrl: 'https://www.krakentec.com/',
   },
   {
-    size: 'small',
     title: 'pefaentertainment.com',
     description: 'Digital entertainment platform for content delivery and audience engagement.',
     tech: ['Media Platform', 'Web Stack', 'AWS', 'Docker'],
     logoSrc: '/logopefa.svg',
     logoAlt: 'PEFA LOGO',
-    href: 'https://www.pefaentertainment.com/',
+    projectUrl: 'https://www.pefaentertainment.com/',
   },
   {
-    size: 'large',
     title: 'Self-Learning Prompt Validation System',
     description: 'System for evaluating and improving prompts through structured validation loops.',
     tech: ['Automation', 'Evaluation', 'System Design', 'AI Ops', 'groq'],
-    links: [
-      'https://github.com/Fezi-x/Self-Learning-Prompt-Validation-System',
-      'https://zayar-hackathon-issa-production.up.railway.app/',
-      'https://vercel.com/zayar-min-thus-projects/hackathon-issa-frontend',
-    ],
+    projectUrl: 'https://zayar-hackathon-issa-production.up.railway.app/',
+    githubUrl: 'https://github.com/Fezi-x/Self-Learning-Prompt-Validation-System',
   },
   {
-    size: 'large',
     title: 'Lead Intelligence Engine',
     description: 'Extracts and structures business data from social platforms into usable leads.',
     tech: ['Python', 'Playwright', 'APIs', 'Data Parsing', 'Automation', 'groq'],
-    links: [
-      'https://github.com/Fezi-x/Lead-Intelligence-Engine',
-      'https://www.mintlify.com/Fezi-x/Lead-Intelligence-Engine',
-    ],
+    projectUrl: 'https://www.mintlify.com/Fezi-x/Lead-Intelligence-Engine',
+    githubUrl: 'https://github.com/Fezi-x/Lead-Intelligence-Engine',
   },
   {
-    size: 'large',
     title: 'Devloop',
     description:
       'A workflow system that connects development tasks directly with execution, allowing actions to trigger structured outputs and GitHub issue management in real time.',
     tech: ['Python', 'CLI', 'GitHub API', 'Automation', 'System Design'],
-    architecture:
-      'Command-driven interface that maps user intent into structured operations, integrated with external services via API orchestration.',
     mediaSrc: '/devloop-demo.gif',
-    href: 'https://github.com/Fezi-x/devloop',
+    projectUrl: 'https://github.com/Fezi-x/devloop',
+    githubUrl: 'https://github.com/Fezi-x/devloop',
     featured: true,
   },
 ];
-
-function Tag({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="text-[11px] uppercase tracking-widest text-[#6B7280] border border-[#2A2A2A] px-2.5 py-1 rounded-full">
-      {children}
-    </span>
-  );
-}
 
 export default function Home() {
   return (
@@ -93,7 +74,7 @@ export default function Home() {
           <div className="mt-10 max-w-2xl space-y-4 text-[#A1A1AA] text-[15px] leading-relaxed">
             <p>I build things that start as small problems and end up becoming systems.</p>
             <p>
-              Somewhere between breaking and fixing, I work across code, interfaces, and infrastructure -- where ideas
+              Somewhere between breaking and fixing, I work across code, interfaces, and infrastructure where ideas
               don't stay abstract for long. Most of what I make lives in that loop between curiosity and execution.
             </p>
           </div>
@@ -122,7 +103,7 @@ export default function Home() {
       </header>
 
       <Section id="projects" title="Projects" tone="muted">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-[#2A2A2A] [grid-auto-rows:auto]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {GRID_ITEMS.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

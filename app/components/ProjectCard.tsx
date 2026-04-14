@@ -1,7 +1,5 @@
-import { IconExternalLink } from '@tabler/icons-react';
+import { IconBrandGithub, IconExternalLink } from '@tabler/icons-react';
 import { TechIcon } from './TechIcon';
-
-export type ProjectSize = 'small' | 'medium' | 'medium-wide' | 'large';
 
 export type ProjectCardProps = {
   title: string;
@@ -9,12 +7,10 @@ export type ProjectCardProps = {
   tech: string[];
   logoSrc?: string;
   logoAlt?: string;
-  href?: string;
-  links?: string[];
+  projectUrl?: string;
+  githubUrl?: string;
   mediaSrc?: string;
-  architecture?: string;
   featured?: boolean;
-  size?: ProjectSize;
 };
 
 export function ProjectCard({
@@ -23,69 +19,39 @@ export function ProjectCard({
   tech,
   logoSrc,
   logoAlt,
-  href,
-  links,
+  projectUrl,
+  githubUrl,
   mediaSrc,
-  architecture,
   featured,
-  size = 'small',
 }: ProjectCardProps) {
-  const linkList = links ?? (href ? [href] : []);
-  const columnSpan =
-    size === 'large'
-      ? 'col-span-1 md:col-span-2 lg:col-span-3'
-      : size === 'medium-wide'
-        ? 'col-span-1 md:col-span-2 lg:col-span-2'
-        : 'col-span-1 md:col-span-1 lg:col-span-1';
-  const density =
-    size === 'large'
-      ? 'gap-6 p-10 md:p-12'
-      : size === 'medium' || size === 'medium-wide'
-        ? 'gap-5 p-9'
-        : 'gap-4 p-8';
+  const gradients = [
+    'bg-gradient-to-br from-neutral-800 via-zinc-900 to-neutral-700',
+    'bg-gradient-to-br from-slate-800 via-neutral-900 to-slate-700',
+    'bg-gradient-to-br from-stone-800 via-neutral-900 to-stone-700',
+  ];
+  const gradientClass = gradients[title.length % gradients.length];
 
   return (
-    <article className={`border-r border-b border-[#2A2A2A] bg-transparent ${columnSpan} ${density}`}>
+    <article
+      className={`group relative flex flex-col gap-5 rounded-2xl border border-neutral-800 p-6 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${
+        featured ? 'bg-neutral-800/60 md:col-span-2' : 'bg-neutral-900'
+      }`}
+    >
       {featured ? (
-        <div className="flex flex-col gap-5">
-          <div className="w-full rounded-[12px] border border-[#2A2A2A] bg-[#121212] overflow-hidden aspect-[16/9]">
-            {mediaSrc ? (
-              <img
-                src={mediaSrc}
-                alt={`${title} demo`}
-                className="w-full h-full object-cover"
-              />
-            ) : null}
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-[16px] font-medium text-[#FFFFFF]">{title}</h3>
-            <p className="text-[14px] text-[#A1A1AA] leading-relaxed">{description}</p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            {tech.map((item) => (
-              <TechIcon key={item} label={item} />
-            ))}
-          </div>
-          {linkList.length > 0 ? (
-            <div className="flex flex-wrap items-center gap-3">
-              {linkList.map((link, index) => (
-                <a
-                  key={link}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-[#A1A1AA] hover:text-[#FFFFFF] transition-colors"
-                  aria-label={`Open ${title} link ${index + 1}`}
-                >
-                  <IconExternalLink className="h-[18px] w-[18px]" stroke={2} />
-                </a>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      ) : size === 'small' ? (
-        <div className="flex flex-col gap-4 min-w-0">
-          <div className="h-24 w-full rounded-[12px] bg-[#121212] flex items-center justify-center">
+        <span className="absolute right-5 top-5 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+          Featured
+        </span>
+      ) : null}
+
+      <div className="w-full overflow-hidden rounded-xl border border-neutral-800 aspect-[16/9]">
+        {mediaSrc ? (
+          <img
+            src={mediaSrc}
+            alt={`${title} demo`}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className={`flex h-full w-full items-center justify-center ${gradientClass}`}>
             {logoSrc ? (
               <img
                 src={logoSrc}
@@ -94,72 +60,46 @@ export function ProjectCard({
               />
             ) : null}
           </div>
-          <h3 className="text-[16px] font-medium text-[#FFFFFF]">{title}</h3>
-          <div className="flex flex-wrap items-center gap-3">
-            {tech.map((item) => (
-              <TechIcon key={item} label={item} />
-            ))}
-          </div>
-          {linkList.length > 0 ? (
-            <div className="flex flex-wrap items-center gap-3">
-              {linkList.map((link, index) => (
-                <a
-                  key={link}
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-[#A1A1AA] hover:text-[#FFFFFF] transition-colors"
-                  aria-label={`Open ${title} link ${index + 1}`}
-                >
-                  <IconExternalLink className="h-[18px] w-[18px]" stroke={2} />
-                </a>
-              ))}
-            </div>
-          ) : null}
-        </div>
-      ) : (
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-start min-w-0">
-          <div className="h-24 w-full lg:h-24 lg:w-24 shrink-0 rounded-[12px] border border-[#2A2A2A] bg-[#121212] flex items-center justify-center">
-            {logoSrc ? (
-              <img
-                src={logoSrc}
-                alt={logoAlt || `${title} logo`}
-                className="max-h-12 max-w-[70%] object-contain"
-              />
-            ) : null}
-          </div>
-          <div className="flex flex-col gap-4 min-w-0">
-            <div className="space-y-2">
-              <h3 className="text-[16px] font-medium text-[#FFFFFF]">{title}</h3>
-              <p className="text-[14px] text-[#A1A1AA] leading-relaxed">{description}</p>
-              {architecture ? (
-                <p className="text-[13px] text-[#6B7280] leading-relaxed">{architecture}</p>
-              ) : null}
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              {tech.map((item) => (
-                <TechIcon key={item} label={item} />
-              ))}
-            </div>
-            {linkList.length > 0 ? (
-              <div className="flex flex-wrap items-center gap-3">
-                {linkList.map((link, index) => (
-                  <a
-                    key={link}
-                    href={link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 text-[#A1A1AA] hover:text-[#FFFFFF] transition-colors"
-                    aria-label={`Open ${title} link ${index + 1}`}
-                  >
-                    <IconExternalLink className="h-[18px] w-[18px]" stroke={2} />
-                  </a>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        </div>
-      )}
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-[18px] font-semibold text-white">{title}</h3>
+        <p className="text-sm text-[#A1A1AA] leading-relaxed">{description}</p>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        {tech.map((item) => (
+          <TechIcon key={item} label={item} />
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        {projectUrl ? (
+          <a
+            href={projectUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-neutral-700 px-4 py-2 text-sm text-neutral-200 transition-colors hover:bg-white hover:text-black"
+            aria-label={`View project ${title}`}
+          >
+            <IconExternalLink className="h-4 w-4" stroke={2} />
+            View Project
+          </a>
+        ) : null}
+        {githubUrl ? (
+          <a
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-neutral-700 px-4 py-2 text-sm text-neutral-200 transition-colors hover:bg-white hover:text-black"
+            aria-label={`View ${title} on GitHub`}
+          >
+            <IconBrandGithub className="h-4 w-4" stroke={2} />
+            GitHub
+          </a>
+        ) : null}
+      </div>
     </article>
   );
 }
